@@ -1,6 +1,6 @@
 FROM python:3.12.5-alpine3.19
 
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./app /app
