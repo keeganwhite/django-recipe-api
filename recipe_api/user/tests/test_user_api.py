@@ -3,7 +3,7 @@ Tests for user api
 """
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-
+from django.test import TestCase
 from rest_framework.test import APIClient
 from rest_framework import status
 
@@ -16,7 +16,7 @@ def create_user(**params):
     return get_user_model().objects.create_user(**params)
 
 
-def PublicUserApiTests(TestCase):
+class PublicUserApiTests(TestCase):
     """Test public user API endpoints"""
 
     def setUp(self):
@@ -29,6 +29,7 @@ def PublicUserApiTests(TestCase):
             'password': 'testpassword123',
             'name': 'Test name'
         }
+
         res = self.client.post(CREATE_USER_URL, payload)
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
         user = get_user_model().objects.get(email=payload['email'])
