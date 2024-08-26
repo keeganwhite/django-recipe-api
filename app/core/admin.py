@@ -1,7 +1,6 @@
 """
 Django admin customisation
 """
-from dataclasses import field, fields
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
@@ -36,5 +35,6 @@ class UserAdmin(BaseUserAdmin):
                 'is_staff')
         }),
     )
+
 
 admin.site.register(models.User, UserAdmin)
