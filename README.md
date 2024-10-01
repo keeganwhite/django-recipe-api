@@ -2,8 +2,14 @@
 Demo project showcasing Django, and development best practices such as unit tests, GitHub actions and flake8.
 
 ## Commands
+### Running the Code
+To run the code run `docker compose up`
 
 ### Docker Compose Run Commands
+
+#### Testing
+Ensure the `DEV` variable in the [compose file](docker-compose.yml) is set to true: `DEV=true`.
+
 * run flake8 in your docker container: `docker compose run --rm app sh -c "flake8"`
 * run unit tests in your docker container: `docker compose run --rm app sh -c "python manage.py test"`
 
